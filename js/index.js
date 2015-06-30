@@ -8,7 +8,7 @@ var popular_color = '#03A9F4';
 var less_popular = '#212121';
 //var post_count = puzzles.response.total_posts;
 var post_count = 20;
-var square_size = 2;
+var square_size = 1;
 
 
   this.colorTiles = (function() {
