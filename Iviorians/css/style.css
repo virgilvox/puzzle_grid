@@ -1,0 +1,518 @@
+
+body {
+  margin: 0;
+  -webkit-transition: opacity 500ms ease; }
+  
+  body.loading {
+    opacity: 0; }
+
+
+h1 {
+  font: 40pt "Helvetica";
+  font-weight: bold;}
+
+
+a {
+  color: #000;
+  -webkit-transition: color 800ms ease;
+  text-decoration: none; }
+
+  
+  a:hover {
+    color: #231f20;
+    -webkit-transition: color 400ms ease; }
+
+
+p.button {
+  text-align: center; }
+
+  p.button a {
+    background: #fff;
+    color: black;
+    border: solid #000 20px;
+    display: block;
+    font: 16px/1 Helvetica, sans-serif;
+    letter-spacing: 2px;
+    font-weight: norml;
+    margin: auto;
+    max-width: 270px;
+    text-transform: uppercase;
+    text-decoration: none;
+    opacity: .99;
+    -webkit-transition: opacity 800ms ease;
+    padding: 1em; }
+
+
+header {
+  margin: auto;
+  background: rgba(0, 0, 0, 1);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;  }
+
+  header .inner {
+    overflow: hidden; 
+    margin: auto;
+    max-width: 960px; }
+    
+  header h1#logo {
+    float: left;
+    font: normal 400 20px/34px "futura-pt", sans-serif;
+    letter-spacing: 1px;
+    text-align: left; 
+    font-size: 26px;
+    line-height: 46px;
+    margin: 30px 0 30px 25px;
+    padding-left: 64px; }
+
+    header h1#logo img {
+    height:45px;
+    float: left;
+    margin-right: 10px;}
+
+    header h1#logo a {
+      color: #fff; 
+      text-transform: uppercase;
+      font-family: "Helvetica",sans-serif;
+      letter-spacing: 2px;
+      font-size: 15px;}
+
+      header h1#logo a:hover {
+        color: #4594ff; }
+
+  header nav {
+    clear: both;
+    display: none;
+    font-family: "futura-pt",sans-serif;
+    letter-spacing: 2px;
+    font-size: 15px;
+    line-height: 1;
+    margin: 30px 0 0;
+    text-align: right; }
+
+
+    header nav.active {
+      display: block; }
+
+    @media only screen and (min-width: 769px) {
+    
+      header nav {
+        clear: none;
+        display: block;
+        font-size: 15px; } }
+
+
+    header nav a {
+      border-top: 1px solid #ebebeb;
+      color: #fff;
+      display: block;
+      padding: 18px 19px;
+      text-align: left;
+      text-decoration: none;
+      text-transform: uppercase; }
+
+      header nav a:hover, header nav a.current {
+        color: #00aeef;
+      /*color: #4594ff;*/}
+      @media only screen and (min-width: 769px) {
+
+        header nav a {
+          border-top: none;
+          display: inline-block; } }
+
+
+section {
+  border-bottom: 1px solid #ebebeb;
+  height: 830px;
+  clear: both;
+  overflow: hidden; }
+
+
+  section:nth-child(even) {
+    background: #dcddde; }
+
+  section:first-child {
+    background: white; }
+  @media only screen and (min-width: 769px) {
+
+    section {
+      padding: 105px 0 105px; } }
+ 
+  section .content-wrapper {
+    margin: auto;
+    max-width: 960px; }
+  
+  section .content {
+    margin: 0 25px; }
+
+  section h1 {
+    margin: 25px 25px 0;
+    text-align: center;
+    max-width: 678px; }
+    @media only screen and (min-width: 769px) {
+
+      section h1 {
+        margin: 25px auto 0; } }
+
+  section h2 {
+    font: 13px/1 "futura-pt", sans-serif;
+    letter-spacing: 2px;
+    color: #4594ff;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 auto 3.5em; }
+
+  section h3 {
+    text-align: center;
+    font: 24px/1 "Helvetica"; }
+    @media only screen and (min-width: 769px) {
+
+      section h3 {
+        font-size: 28px; } }
+  
+  section p, section dd {
+    color: #7e7e7e;
+    font: 18px/1.66 "Helvetica";
+    margin: 1em 25px; }
+    @media only screen and (min-width: 769px) {
+   
+      section p, section dd {
+        font-size: 14pt;
+        margin: 1em auto;
+        max-width: 960px; } }
+
+    section p em, section dd em {
+      color: #231f20;
+      font-size: larger;
+      font-style: normal;
+      font-weight: 300; }
+
+
+iframe {
+  height: 1045px;
+  width: 320px; }
+
+
+#slideshow-wrapper {
+  height: auto;
+  overflow: hidden;
+  margin-top: 22px; }
+  @media only screen and (min-width: 769px) {
+
+    #slideshow-wrapper {
+      height: auto;
+      margin-top: 62px; } }
+
+
+#slideshow {
+  -webkit-transition: all 500ms ease;
+  -webkit-transform: translate3d(0, 0, 0);
+  text-align: left;
+  width: 9999px;
+  height: auto;
+  overflow: hidden;
+  position: relative; }
+
+  #slideshow .slide {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    width: 200px; }
+    @media only screen and (min-width: 769px) {
+
+      #slideshow .slide {
+        width: 400px; } }
+
+    #slideshow .slide:hover .caption {
+      opacity: 1;
+      -webkit-transition: opacity 400ms ease; }
+
+  #slideshow img {
+    display: block;
+    width: auto;
+    height: 200px; }
+
+    #slideshow img.current {
+      opacity: 1; }
+    @media only screen and (min-width: 769px) {
+
+      #slideshow img {
+        height: 400px; } }
+
+  #slideshow .caption {
+    background: rgba(71, 148, 255, 0.75);
+    font: 16px/1 "futura-pt", sans-serif;
+    letter-spacing: normal;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: white;
+    display: block;
+    font-size: 14px;
+    line-height: 1.33;
+    padding: 18px;
+    opacity: 0;
+    -webkit-transition: opacity 800ms ease; }
+
+
+section#intro {
+  padding-bottom: 0; }
+  @media only screen and (min-width: 769px) {
+
+    section#intro h1 {
+      margin-top: 65px; }
+
+    section#intro .button {
+      margin: 30px auto 0; } }
+
+  section#intro .footnote {
+    font-size: inherit;
+    font-style: italic;
+    text-align: center;
+    margin-top: 25px;
+    margin-right: 150px; }
+
+
+section#situation {
+  background: white url("/img/map.png") no-repeat right -170px;
+  background-size: auto 445px;
+  margin: auto;
+  max-width: 960px; }
+  @media only screen and (min-width: 769px) {
+
+    section#situation {
+      background: white url("/img/map.png") no-repeat right bottom; } }
+  @media only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+
+    section#situation {
+      background-image: url("/img/map@2x.png"); } }
+
+  section#situation .description {
+    margin-bottom: 75px;
+    margin-top: 170px; }
+    @media only screen and (min-width: 769px) {
+
+      section#situation .description {
+        margin-top: 0; } }
+
+  section#situation p {
+    margin: 1em 25px 1em 25px;
+    text-align: left; }
+    @media only screen and (min-width: 769px) {
+
+      section#situation p {
+        max-width: 450px; } }
+
+@media only screen and (min-width: 769px) {
+
+  section#volunteer p {
+    margin: 1em auto;
+    max-width: 511px;
+    text-align: left; }
+
+  section#volunteer p.button {
+    text-align: center; } }
+
+section#volunteer h3 {
+  border-top: 1px solid #ebebeb;
+  padding-top: 1em; }
+  @media only screen and (min-width: 769px) {
+
+    section#volunteer h3 {
+      border-top: none;
+      padding-top: 0; } }
+@media only screen and (min-width: 769px) {
+
+  section#volunteer .main {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 0 1em; } }
+@media only screen and (min-width: 769px) {
+
+  section#volunteer aside {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 0 1em; } }
+
+
+section#who-we-are p {
+  max-width: 511px; }
+
+section#who-we-are p:nth-child(3) {
+  color: #231f20; }
+
+section#who-we-are em {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: bold; }
+
+section#who-we-are #sponsors-wrapper {
+  margin: auto;
+  max-width: 960px;
+  text-align: center; }
+
+section#who-we-are ul#sponsors {
+  border-bottom: 1px solid #ebebeb;
+  display: inline-block;
+  margin: 0 25px 50px;
+  max-width: 668px;
+  padding-left: 0;
+  text-align: center; }
+
+  section#who-we-are ul#sponsors li {
+    display: inline-block;
+    vertical-align: middle; }
+
+  section#who-we-are ul#sponsors a {
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    padding: 1em;
+    text-indent: -9999px;
+    width: 111px;
+    height: 111px;
+    background-size: 119px 119px;
+    -webkit-transition: opacity 800ms ease; }
+
+    section#who-we-are ul#sponsors a:hover {
+      opacity: .65;
+      -webkit-transition: opacity 400ms ease; }
+
+section#who-we-are .cantora {
+  background-image: url("/img/logos/logo_cantora.png"); }
+  @media only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+
+    section#who-we-are .cantora {
+      background-image: url("/img/logos/logo_cantora@2x.png"); } }
+
+section#who-we-are .gin-lane {
+  background-image: url("/img/logos/logo_ginlane.png"); }
+  @media only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+
+    section#who-we-are .gin-lane {
+      background-image: url("/img/logos/logo_ginlane@2x.png"); } }
+
+section#who-we-are .raise-cache {
+  background-image: url("/img/logos/logo_raisecache.png"); }
+  @media only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+
+    section#who-we-are .raise-cache {
+
+section#who-we-are .saturdays {
+  background-image: url("/img/logos/logo_saturdays.png"); }
+
+    section#who-we-are .saturdays {
+      background-image: url("/img/logos/logo_saturdays@2x.png"); } }
+
+section#who-we-are .oc {
+  background-image: url("/img/logos/logo_oc.png"); }
+  @media only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+
+    section#who-we-are .oc {
+      background-image: url("/img/logos/logo_oc@2x.png"); } }
+
+section#who-we-are .lola {
+  background-image: url("/img/logos/logo_lola.png"); }
+  @media only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+
+    section#who-we-are .lola {
+      background-image: url("/img/logos/logo_lola@2x.png"); } }
+
+section#who-we-are .smile {
+  background-image: url("/img/logos/logo_smile.png"); }
+  @media only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+
+    section#who-we-are .smile {
+      background-image: url("/img/logos/logo_smile@2x.png"); } }
+
+section#who-we-are .whitmans {
+  background-image: url("/img/logos/logo_whitmans.png"); }
+  @media only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+
+    section#who-we-are .whitmans {
+      background-image: url("/img/logos/logo_whitmans@2x.png"); } }
+
+
+#what-we-will-be-doing .wrapper {
+  max-width: 960px;
+  margin: auto; }
+  @media only screen and (min-width: 769px) {
+
+    #what-we-will-be-doing .wrapper {
+      display: table; } }
+
+#what-we-will-be-doing .inner {
+  margin: 25px auto; }
+
+#what-we-will-be-doing #rockawaybeach_photo {
+  margin: auto;
+  max-width: 362px;
+  height: 238px;
+  background: url("/img/rockawaybeach_photo.jpg") no-repeat center;
+  background-size: cover; }
+  @media only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+
+    #what-we-will-be-doing #rockawaybeach_photo {
+      background-image: url("/img/rockawaybeach_photo@2x.jpg"); } }
+@media only screen and (min-width: 769px) {
+
+  #what-we-will-be-doing .inner {
+    display: table-row;
+    margin: 25px 150px; }
+    
+
+  #what-we-will-be-doing #rockawaybeach_photo {
+    display: table-cell;
+    width: 485px;
+    height: 350px;
+    background-size: 485px 350px; }
+
+
+  #what-we-will-be-doing p {
+    display: table-cell;
+    padding-left: 1em;
+    vertical-align: middle; } }
+
+#off {
+  width: 20pt;
+  height: 20pt;
+  background: white;
+  margin: 5px 5px 5px 5px;
+  float:left;
+}
+
+#scroll-down-puzzle{
+    margin-top: 22%;
+}
+
+#scroll-down-puzzle img{
+  width:5%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#scroll-down-archive{
+    margin-top: 22%;
+}
+
+#scroll-down-archive img{
+  width:5%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#headshot{
+  width: 200pt;
+  height: 200pt;
+  background: white;
+  border: solid #000 20px;
+  margin: 5px 20px 5px 5px;
+  float:left;
+}
