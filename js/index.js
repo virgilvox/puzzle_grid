@@ -2,18 +2,18 @@
 angular.module('MyApp')
 .controller('AppCtrl', function($scope) {
 
-// ALL THE IMPORTANT VARIABLES
+  // ALL THE IMPORTANT VARIABLES
 
-var popular_color = '#03A9F4';
-var less_popular = '#212121';
-//var post_count = puzzles.response.total_posts;
-var post_count = 20;
-var square_size = 1;
+  var popular_color = '#03A9F4';
+  var less_popular = '#212121';
+  //var post_count = puzzles.response.total_posts;
+  var post_count = 20;
+  var square_size = 1;
 
 
   this.colorTiles = (function() {
     var tiles = [];
-
+    
     for (var i = 0; i < post_count; i++) {
       tiles.push({
         color: pickColor(i),
