@@ -22,7 +22,7 @@ var ivApp = angular.module("MyApp");
   loadPosts(function(posts) {
 
   $scope.allTiles = posts;
-  console.log(posts);
+//  console.log(posts);
 
 });
 
@@ -36,19 +36,15 @@ var ivApp = angular.module("MyApp");
 
     var key = "api_key=AtAx2nkLkrkUJUE6bLu2upJ1HkJBsQ7sYZEyr9Acc9voec6nQd";
     var api = "https://api.tumblr.com/v2/blog/ivoirians.tumblr.com/";
-    var url = api + "posts/text?filter=html&limit=20&offset=" + offset + "&" + key;
+    var url = api + "posts/text?callback=JSON_CALLBACK&filter=html&limit=20&offset=" + offset + "&" + key;
 
     var req = {
-   "method": 'GET',
-   "url": url,
-   "headers": {
-     "Content-Type": "application/json"
-   }
+   "method": 'JSONP',
+   "url": url
   };
 
     $http(req).
       then(function(response) {
-
         var resp = response.data.response;
         post_count = resp.total_posts;
         //console.log(resp);
@@ -72,12 +68,11 @@ var ivApp = angular.module("MyApp");
             retrieve_more(offset + 20);
           }
         }else{
-            console.log(posts);
+          //  console.log(posts);
             $scope.loadGrid = true;
             callback(posts);
         }
 
-      }, function(response) {
       });
 
   };
