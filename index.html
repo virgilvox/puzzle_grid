@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html ng-app="MyApp">
 <head>
   <meta charset="UTF-8">
   <title>Puzzle Grid Test</title>
@@ -10,12 +10,15 @@
 
   <link rel='stylesheet' href='https://gitcdn.xyz/repo/angular/bower-material/v0.11.0/angular-material.css'>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
   <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js'></script>
   <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-animate.min.js'></script>
   <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.min.js'></script>
   <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-aria.min.js'></script>
   <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-messages.min.js'></script>
   <script src='https://gitcdn.xyz/repo/angular/bower-material/v0.11.0/angular-material.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-sanitize.min.js'></script>
   <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/assets-cache.js'></script>
   <script src="js/index.js"></script>
 
@@ -23,10 +26,15 @@
 
 </head>
 
-<body>
+<body ng-controller="AppCtrl as appCtrl" class="gridListdemoResponsiveUsage" >
+  <md-content>
+  <md-button class="md-fab md-fab-bottom-right" style="background-color: rgb(63,81,181);"aria-label="Add" ng-href="{{puzzleUrl}}">
+  <i class="material-icons">keyboard_arrow_up</i>
+  </md-button>
+
+  <div>
 
 
-  <div ng-controller="AppCtrl as appCtrl" class="gridListdemoResponsiveUsage" ng-app="MyApp" >
     <md-toolbar>
       <div class="md-toolbar-tools">
         <md-button class="md-icon-button" aria-label="main">
@@ -37,18 +45,29 @@
           <span>Ivoirians</span>
         </h2>
         <span flex></span>
-        <md-button class="md-raised" style="background-color: rgb(63,81,181);">Archive</md-button>
-        <md-button class="md-raised" style="background-color: rgb(63,81,181);">Puzzle</md-button>
-        <md-button class="md-raised" style="background-color: rgb(63,81,181);">About</md-button>
+        <md-button class="md-raised" ng-href="{{archiveUrl}}" style="background-color: rgb(63,81,181);color: white;">Archive</md-button>
+        <md-button class="md-raised" ng-href="{{puzzleUrl}}" style="background-color: rgb(63,81,181);color: white;">Puzzle</md-button>
+        <md-button class="md-raised" ng-click="aboutP()" style="background-color: rgb(63,81,181);color: white;">About</md-button>
       </div>
     </md-toolbar>
     <md-whiteframe class="md-whiteframe-z2" layout layout-align="center center">
       <span flex>
-        <md-content ng-if="loadGrid" layout-padding="">
-          <md-grid-list md-cols-gt-md="12" md-cols-sm="3" md-cols-md="8" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter-gt-md="16px" md-gutter-gt-sm="8px" md-gutter="4px">
+      <md-whiteframe id="puzzle" class="md-whiteframe-z2" layout layout-align="center center">
+        <md-content>
+          <span layout layout-align="center center"><h1>{{someTitle}}</h1></span>
+        <p><div ng-bind-html="someBody"></div></p>
+        <p ng-if="!loadGrid">Puzzles may take a moment to load...</p>
+        <div ng-if="!loadGrid" layout="row" layout-sm="column" layout-align="space-around">
+          <md-progress-circular md-mode="indeterminate" style="color: blue;"></md-progress-circular></div>
+
+        </md-content>
+        </md-whiteframe>
+        <md-content  layout-padding="">
+          <md-grid-list id="archive" ng-if="loadGrid" md-cols-gt-md="12" md-cols-sm="3" md-cols-md="8" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter-gt-md="16px" md-gutter-gt-sm="8px" md-gutter="4px">
             <md-grid-tile ng-repeat="tile in allTiles" ng-click="clicked($index)" ng-style="{
               'background': tile.color
             }" md-colspan-gt-sm="{{tile.colspan}}" md-rowspan-gt-sm="{{tile.rowspan}}">
+            <span><a style="color: white;">{{tile.slug}}</a></span>
           </md-grid-tile>
         </md-grid-list>
       </md-content>
@@ -57,8 +76,7 @@
 
 </div>
 
-
-
+</md-content>
 
 </body>
 </html>

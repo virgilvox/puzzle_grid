@@ -1,6 +1,12 @@
+var ivApp = angular.module("MyApp");
+           ivApp.controller("AppCtrl", function ($scope, $http) {
 
-angular.module('MyApp')
-.controller('AppCtrl', function($scope, $http) {
+
+
+ $scope.someBody = "";
+ $scope.someTitle = "Ivoirian Puzzles";
+ $scope.archiveUrl = "#archive";
+ $scope.puzzleUrl = "#puzzle";
 
   // ALL THE IMPORTANT VARIABLES
 
@@ -9,6 +15,7 @@ angular.module('MyApp')
   //var post_count = puzzles.response.total_posts;
   var post_count;
   var square_size = 1;
+  var posts = [];
   //$scope.loadGrid = false;
 
 
@@ -23,13 +30,13 @@ angular.module('MyApp')
 
   function loadPosts (callback) {
 
-    var posts = [];
+    posts = [];
 
     var retrieve_more = function (offset) {
 
     var key = "api_key=AtAx2nkLkrkUJUE6bLu2upJ1HkJBsQ7sYZEyr9Acc9voec6nQd";
     var api = "https://api.tumblr.com/v2/blog/ivoirians.tumblr.com/";
-    var url = api + "posts/text?filter=text&limit=20&offset=" + offset + "&" + key;
+    var url = api + "posts/text?filter=html&limit=20&offset=" + offset + "&" + key;
 
     var req = {
    "method": 'GET',
@@ -48,7 +55,7 @@ angular.module('MyApp')
         angular.forEach(resp.posts, function(data) {
           var value = {
             "color": pickColor(data.note_count),
-            "colspan": square_size,
+            "colspan": square_size + 1,
             "rowspan": square_size,
             "title": data.title,
             "body": data.body,
@@ -82,8 +89,20 @@ angular.module('MyApp')
 
   $scope.clicked = function($index){
 
-    var win = window.open(puzzles.response.posts[$index].post_url, '_blank');
-    win.focus();
+    //var win = window.open(puzzles.response.posts[$index].post_url, '_blank');
+    //win.focus();
+    $scope.someTitle = posts[$index].title;
+    $scope.someBody = posts[$index].body;
+
+  }
+
+
+  $scope.aboutP = function(){
+
+    //var win = window.open(puzzles.response.posts[$index].post_url, '_blank');
+    //win.focus();
+    $scope.someTitle = "About";
+    $scope.someBody = '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at velit maximus, semper elit eget, tempor metus. Suspendisse imperdiet suscipit suscipit. Maecenas vitae nunc eleifend, commodo quam et, convallis elit. Sed id leo sit amet nisl gravida congue. Maecenas lacinia eleifend neque, eu pretium sapien sagittis vel. Quisque commodo, risus eget auctor venenatis, neque ante blandit metus, non facilisis augue magna in dui. Nunc cursus fermentum urna, a iaculis enim maximus nec. In eu fringilla tellus. Vestibulum vitae arcu at velit congue faucibus sed id mi. Integer sit amet neque id ipsum ornare rutrum. Donec fermentum diam non feugiat tristique. Curabitur rutrum eros eu mi dignissim rhoncus. Cras eget elit quis lectus tincidunt hendrerit varius a libero. Aliquam tristique neque nec nibh convallis, eget imperdiet ipsum gravida. Aenean in odio egestas, fringilla elit vel, vehicula lectus.</p>';
 
   }
 
@@ -102,4 +121,10 @@ angular.module('MyApp')
   }
 
 
+});
+
+ivApp.config(function($sceProvider) {
+  // Completely disable SCE.  For demonstration purposes only!
+  // Do not use in new projects.
+  $sceProvider.enabled(false);
 });
